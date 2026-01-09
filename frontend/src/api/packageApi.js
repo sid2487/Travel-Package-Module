@@ -11,7 +11,7 @@ export const createPackage = (formData) =>
 
 export const downloadPdf = (id) => {
     window.open(
-        `${import.meta.env.VITE_API_URL || "http://localhost:5000"}/package/packages/${id}/pdf`,
+        `${BASE_URL}/package/packages/${id}/pdf`,
         "_blank"
     );
 };
