@@ -1,4 +1,4 @@
-import api from "./axios";
+import api, { BASE_URL } from "./axios";
 
 export const getAllPackages = () => api.get("/package/packages");
 
