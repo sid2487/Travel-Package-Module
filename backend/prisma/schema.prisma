@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Package {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  duration Int
+  price Int
+  imageUrl String?
+  createdAt DateTime @default(now())
+
+  days TravelDay[]
+}
+
+model TravelDay{
+  id Int @id @default(autoincrement())
+  dayNumber Int
+  title String
+  description String
+
+  packageId Int
+  package Package @relation(fields: [packageId], references: [id])
+}
