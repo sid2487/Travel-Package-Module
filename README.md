@@ -1,6 +1,7 @@
 # Travel Package Module
 
 A full-stack Travel Package Module where an admin can create travel packages with images and day-wise itineraries, and users can view package details and download them as a PDF.
+
 ---
 
 ## Features
@@ -40,75 +41,61 @@ A full-stack Travel Package Module where an admin can create travel packages wit
 
 ### Backend
 
+```text
 backend/
 ├── prisma/
-│ └── schema.prisma
+│   └── schema.prisma
 ├── src/
-│ ├── server.js
-│ ├── prisma.js
-│ ├── config/
-│ │ └── cloudinary.js
-│ ├── routes/
-│ │ ├── admin.routes.js
-│ │ └── package.routes.js
-│ ├── controllers/
-│ │ └── package.controller.js
-│ ├── middleware/
-│ │ └── error.middleware.js
-│ └── utils/
-│ └── pdfGenerator.js
+│   ├── server.js
+│   ├── prisma.js
+│   ├── config/
+│   │   └── cloudinary.js
+│   ├── routes/
+│   │   ├── admin.routes.js
+│   │   └── package.routes.js
+│   ├── controllers/
+│   │   └── package.controller.js
+│   ├── middleware/
+│   │   └── error.middleware.js
+│   └── utils/
+│       └── pdfGenerator.js
 └── .env
-
-### Frontend
 
 frontend/
 ├── src/
-│ ├── api/
-│ │ ├── axios.js
-│ │ └── packageApi.js
-│ ├── components/
-│ │ ├── CreatePackage.jsx
-│ │ ├── PackageList.jsx
-│ │ └── PackageDetails.jsx
-│ ├── App.js
-│ ├── index.js
-│ └── index.css
+│   ├── api/
+│   │   ├── axios.js
+│   │   └── packageApi.js
+│   ├── components/
+│   │   ├── CreatePackage.jsx
+│   │   ├── PackageList.jsx
+│   │   └── PackageDetails.jsx
+│   ├── App.js
+│   ├── index.js
+│   └── index.css
 └── tailwind.config.js
+```
+API Endpoints
+| Method | Endpoint          | Description                 |
+| ------ | ----------------- | --------------------------- |
+| POST   | `/admin/packages` | Create a new travel package |
 
+| Method | Endpoint                    | Description                |
+| ------ | --------------------------- | -------------------------- |
+| GET    | `/package/packages`         | Get all travel packages    |
+| GET    | `/package/packages/:id`     | Get single package details |
+| GET    | `/package/packages/:id/pdf` | Download package PDF       |
 
-## API Endpoints
+Running the Project:
 
-### Admin APIs
-| Method | Endpoint | Description |
-|------|---------|-------------|
-| POST | `/admin/packages` | Create a new package |
+Backend Setup
+cd backend
+npm install
+npx prisma migrate dev
+npm start
 
-### User APIs
-| Method | Endpoint | Description |
-|------|---------|-------------|
-| GET | `/package/packages` | Get all packages |
-| GET | `/package/pcakages/:id` | Get single package |
-| GET | `/package/pcakages/:id/pdf` | Download package PDF |
-
-## PDF Generation
-
-- PDFs are generated dynamically using PDFKit
-- Includes:
-  - Package title
-  - Description
-  - Price
-  - Duration
-  - Day-wise itinerary
-- PDF is downloaded directly by the browser
-
-  Running the Project:
-  cd backend
-  npm install
-  npx prisma migrate dev
-  npm run dev
-
-  Frontend
-  cd frontend
-  npm install
-  npm start
+Frontend Setup
+cd frontend
+npm install
+npm run dev
 
