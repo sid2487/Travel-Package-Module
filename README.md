@@ -41,50 +41,38 @@ A full-stack Travel Package Module where an admin can create travel packages wit
 ### Backend
 
 backend/
-│
 ├── prisma/
 │ └── schema.prisma
-│
 ├── src/
 │ ├── server.js
-│ 
-└── config/
-│ ├── cloudinary.js
-  ├── prisma.js
-│
+│ ├── prisma.js
+│ ├── config/
+│ │ └── cloudinary.js
 │ ├── routes/
 │ │ ├── admin.routes.js
 │ │ └── package.routes.js
-│
 │ ├── controllers/
 │ │ └── package.controller.js
-│
 │ ├── middleware/
 │ │ └── error.middleware.js
-│
 │ └── utils/
-│ ├── pdfGenerator.js
-│
+│ └── pdfGenerator.js
 └── .env
 
 ### Frontend
 
 frontend/
-│
 ├── src/
 │ ├── api/
 │ │ ├── axios.js
 │ │ └── packageApi.js
-│ │
 │ ├── components/
 │ │ ├── CreatePackage.jsx
 │ │ ├── PackageList.jsx
 │ │ └── PackageDetails.jsx
-│ │
 │ ├── App.js
 │ ├── index.js
 │ └── index.css
-│
 └── tailwind.config.js
 
 
